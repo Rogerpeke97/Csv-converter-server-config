@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Csv converter</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="/fontAwesome/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(135, 163, 182);
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .grid {
+            background-color: whitesmoke;
+        }
+
+        .container {
+            position: relative;
+            display: grid;
+            top: 4rem;
+            overflow: hidden;
+            margin-left: 5%;
+            margin-right: 5%;
+            height: 100%;
+            margin-bottom: 5%;
+            background-color: whitesmoke;
+            grid-template-rows: 60rem 70rem 10rem 57rem 60rem;
+            box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .navbar {
+            background-color: black;
+            height: 4rem;
+            position: fixed;
+            width: 100%;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 80% 20%;
+            box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .rightnavbar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            list-style: none;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        .link_right>a>i {
+            display: grid;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+            height: 100%;
+            width: 100%;
+            transition: color 0.3s ease-out;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link_right>a {
+            text-decoration: none;
+
+        }
+
+        .github>h3 {
+            display: grid;
+            font-size: 0.9rem;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            cursor: default;
+        }
+
+        .github {
+            display: grid;
+        }
+
+        .link_right {
+            display: grid;
+            color: white;
+            grid-template-columns: 20% 80%;
+        }
+
+        .link_right>a>i:hover {
+            color: #3498db;
+        }
+
+        .home {
+            padding-left: 1rem;
+            display: grid;
+            grid-template-columns: 0.2fr 1fr;
+        }
+
+        .home1 {
+            display: grid;
+            width: 10rem;
+            font-weight: 700;
+            font-size: 0.8rem;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .grid1 {
+            display: grid;
+            background-image: url('/dataimg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgb(135, 163, 182);
+            z-index: 1;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: box-shadow .5s ease-out;
+        }
+
+        .grid1:hover {
+            box-shadow: 0.6vh 0.5vh 1.3vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .logo {
+            position: relative;
+            display: grid;
+            grid-template-rows: 0.3fr 0.5fr 1fr 0.3fr;
+            margin-bottom: 7%;
+        }
+
+        .logo>.logoimg {
+            position: relative;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .explainercsv {
+            position: relative;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            color: teal;
+            font-family: Karla, sans-serif;
+            text-shadow: 2px 2px 2px #000000;
+        }
+
+        .explainercsv>h1 {
+            transition: color .5s ease-out;
+
+        }
+
+        .explainercsv>h1:hover {
+            animation: scaleh 1s ease-out infinite;
+            color: #2dd8b1;
+        }
+
+        @keyframes scaleh {
+            0% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .buttons {
+            position: relative;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .logo>.buttons>i {
+            display: grid;
+            color: teal;
+            font-size: 6rem;
+            text-align: center;
+            text-shadow: 2px 2px 2px #000000;
+            animation: scale 2s ease-out infinite;
+        }
+
+        @keyframes scale {
+            0% {
+                transform: rotate(-1deg);
+            }
+
+            20% {
+                transform: rotate(2deg) scaleY(1.05);
+            }
+
+            40% {
+                transform: rotate(-1deg);
+            }
+
+            60% {
+                transform: rotate(2deg);
+            }
+
+            80% {
+                transform: rotate(-1deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .arrow {
+            position: relative;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .arrow>a {
+            cursor: pointer;
+            transition: transform .5s ease-out;
+            text-decoration: none;
+            color: teal;
+        }
+
+        .arrow>a:hover {
+            transform: scale(1.1);
+        }
+
+        .grid2 {
+            background: linear-gradient(to left, rgb(135, 163, 182) 0%, rgb(135, 163, 182) 49.7%, #03549F 49.7%, #03549F 50.2%, rgb(135, 163, 182) 50.2%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5%;
+            padding: 2%;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: box-shadow .5s ease-out;
+            font-size: 0.7rem;
+        }
+
+        .grid2:hover {
+            box-shadow: 0.6vh 0.5vh 1.3vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .vertical {
+            display: grid;
+            grid-template-rows: 70% 30%;
+            font-family: Karla, sans-serif;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+        }
+
+        .vertical>h2 {
+            display: grid;
+            padding: 0.9rem;
+            text-align: justify;
+            position: relative;
+            box-shadow: 0.6vh 0.5vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            margin: 0;
+            transition: box-shadow .2s ease-out;
+        }
+
+        .vertical>h2:hover {
+            box-shadow: 1.5vh 0.8vh 1.3vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .image_example {
+            display: grid;
+            background: url('verticalchart.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .multiaxis {
+            display: grid;
+            grid-template-rows: 70% 30%;
+            font-family: Karla, sans-serif;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+        }
+
+        .multiaxis>h2 {
+            display: grid;
+            transition: box-shadow .2s ease-out;
+            padding: 0.9rem;
+            text-align: justify;
+            position: relative;
+            margin: 0;
+            box-shadow: 0.6vh 0.5vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .multiaxis>h2:hover {
+            box-shadow: 1.5vh 0.8vh 1.3vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .imagemulti_example {
+            display: grid;
+            background: url('multiimage.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        /*GRID 3 STUFF*/
+        .grid3 {
+            display: grid;
+            background: linear-gradient(70deg, rgb(98, 119, 133) 0%, rgb(98, 119, 133) 49.7%, #03549F 49.7%, #03549F 50.2%, rgb(135, 163, 182) 50.2%);
+            box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .grid3>form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .numerodos {
+            display: grid;
+            grid-template-columns: 10rem 20rem;
+        }
+
+        .loadingfile {
+            display: grid;
+            grid-template-rows: 20% 60% 20%;
+            text-shadow: 1px 1px 1px #000000;
+            font-size: 0.6rem;
+            font-family: Karla, sans-serif;
+            color: white;
+        }
+
+        .browsefiles {
+            background-color: teal;
+            display: grid;
+            box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            text-shadow: 1px 1px 1px #000000;
+            text-align: center;
+            color: white;
+            border-radius: 0.2rem;
+            font-weight: 700;
+            transition: all .5s ease-out;
+
+        }
+
+        .browsefiles:hover {
+            transform: scale(1.02);
+            background-color: #2dd8b1;
+        }
+
+        .browsefiles>label {
+            display: grid;
+            font-size: 1rem;
+            height: 100%;
+            align-items: center;
+            cursor: pointer;
+            font-family: Karla, sans-serif;
+        }
+
+        .uploadclick {
+            background-color: teal;
+            display: grid;
+            box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            text-shadow: 1px 1px 1px #000000;
+            color: white;
+            border-radius: 0.2rem;
+            transition: all .5s ease-out;
+        }
+
+        .uploadclick:hover {
+            transform: scale(1.02);
+            background-color: #2dd8b1;
+
+        }
+
+        .uploadclick>label {
+            cursor: pointer;
+            text-align: center;
+            align-items: center;
+            display: grid;
+            font-family: Karla, sans-serif;
+            font-weight: 700;
+            height: 100%;
+            width: 100%;
+        }
+
+        .uploadclick>label>h2 {
+            margin: 0;
+        }
+
+        .csvimage {
+            display: grid;
+            background-image: url('/csvimage.jpg');
+            background-size: cover;
+            text-align: center;
+            align-items: center;
+            font-size: 4rem;
+            margin-left: 25%;
+            margin-right: 25%;
+            text-shadow: 1px 1px 1px #000000;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .csvimage>i {
+            animation: loading 2s linear 2 forwards;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(90deg) scaleY(1.25);
+            }
+
+            50% {
+                transform: rotate(180deg) scaleY(1);
+            }
+
+            75% {
+                transform: rotate(270deg) scaleY(1.25);
+            }
+
+            100% {
+                transform: rotate(360deg) scaleY(1);
+            }
+        }
+
+        /*GRID 4 STUFF*/
+        .grid4 {
+            background-color: rgb(135, 163, 182);
+            display: grid;
+            grid-template-columns: 40% 60%;
+            position: relative;
+            box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .graphconfig {
+            display: grid;
+            background-image: url('abstract.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 5rem;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            gap: 1%;
+        }
+
+        .row1 {
+            background-color: rgb(135, 163, 182);
+            display: grid;
+            grid-template-rows: 0.1fr 0.3fr 0.3fr;
+            font-family: Karla, sans-serif;
+            font-weight: 700;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: box-shadow .5s ease-out;
+        }
+
+        .row1:hover {
+            box-shadow: 0.2vh 0.1vh 1vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row1>h2 {
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: rgb(206, 194, 194);
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row1>h3 {
+            margin: 0.1rem;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: teal;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: all .5s ease-out;
+            cursor: pointer;
+        }
+
+        .row1>h3:hover {
+            transform: scale(1.02);
+            background-color: #2dd8b1;
+        }
+
+        .row2 {
+            background-color: rgb(135, 163, 182);
+            display: grid;
+            grid-template-rows: 0.1fr 2.5rem 5rem;
+            font-family: Karla, sans-serif;
+            font-weight: 700;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: box-shadow .5s ease-out;
+        }
+
+        .row2:hover {
+            box-shadow: 0.2vh 0.1vh 1vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row2>h2 {
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: rgb(206, 194, 194);
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row2>input {
+            margin: 0.1rem;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: white;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: all .5s ease-out;
+            cursor: pointer;
+        }
+
+        .row2>input:hover {
+            background-color: #2dd8b1;
+        }
+
+        .row2>h3 {
+            display: grid;
+            text-align: center;
+            align-items: center;
+            margin: 0.5rem;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: teal;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: all .5s ease-out;
+            cursor: pointer;
+        }
+
+        .row2>h3:hover {
+            transform: scale(1.02);
+            background-color: #2dd8b1;
+        }
+
+        .row3 {
+            background-color: rgb(135, 163, 182);
+            display: grid;
+            grid-template-rows: 0.1fr 2.5rem 5rem;
+            font-family: Karla, sans-serif;
+            font-weight: 700;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: box-shadow .5s ease-out;
+        }
+
+        .row3:hover {
+            box-shadow: 0.2vh 0.1vh 1vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .removerows {
+            align-items: center;
+            display: grid;
+            grid-template-columns: 95% 5%;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            background-color: rgb(206, 194, 194);
+
+        }
+
+        .removerows>h2 {
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            text-align: left;
+        }
+
+        .removerows>i {
+            font-size: 1.2rem;
+            margin: 0;
+            text-align: right;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            transition: color .5s ease-out;
+            cursor: pointer;
+        }
+
+        .removerows>i:hover {
+            color: teal;
+        }
+
+        .row3>input {
+            margin: 0.1rem;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: white;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: all .5s ease-out;
+            cursor: pointer;
+        }
+
+        .row3>input:hover {
+            background-color: #2dd8b1;
+        }
+
+        .row3>h3 {
+            display: grid;
+            text-align: center;
+            align-items: center;
+            margin: 0.5rem;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: teal;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: all .5s ease-out;
+            cursor: pointer;
+        }
+
+        .row3>h3:hover {
+            transform: scale(1.02);
+            background-color: #2dd8b1;
+        }
+
+        .row4 {
+            background-color: rgb(135, 163, 182);
+            display: grid;
+            grid-template-rows: 0.1fr 0.3fr 0.3fr;
+            font-family: Karla, sans-serif;
+            font-weight: 700;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: box-shadow .5s ease-out;
+        }
+
+        .row4:hover {
+            box-shadow: 0.2vh 0.1vh 1vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row4>h2 {
+            margin: 0;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: rgb(206, 194, 194);
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row4>h3 {
+            margin: 0.1rem;
+            color: white;
+            text-shadow: 1px 1px 1px #000000;
+            background-color: teal;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: all .5s ease-out;
+            cursor: pointer;
+        }
+
+        .row4>h3:hover {
+            transform: scale(1.02);
+            background-color: #2dd8b1;
+        }
+
+        .myChart {
+            position: relative;
+            display: grid;
+            width: 100%;
+            height: 100%;
+            min-width: 300px;
+            min-height: 300px;
+        }
+
+        #myChart {
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            min-height: 300px;
+            min-width: 200px;
+            box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+
+        }
+
+        .grid5 {
+            background: linear-gradient(28.5deg, rgb(66, 119, 155) 0%, rgb(66, 119, 155) 50%, rgb(43, 68, 85) 50%, rgb(0, 0, 0) 51%, rgb(42, 71, 90) 51%);
+            display: grid;
+            grid-template-rows: 50% 50%;
+            padding: 5%;
+            font-family: Karla, sans-serif;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .column1 {
+            display: grid;
+            grid-template-columns: 38% 62%;
+        }
+
+        .column1>.explain_image {
+            display: grid;
+            background: url('rowsexample.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .explain_text {
+            background-color: rgb(42, 71, 90);
+            box-shadow: 0.2vh 0.1vh 0.9vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-bottom: 8%;
+            margin-top: 8%;
+            align-items: center;
+            display: grid;
+            justify-content: center;
+        }
+
+        .explain_text>h3 {
+            margin: 0;
+            text-align: justify;
+            padding-left: 10%;
+            padding-right: 10%;
+            text-shadow: 1px 1px 1px #000000;
+        }
+
+        .column2 {
+            margin-top: 1%;
+            display: grid;
+            grid-template-columns: 38% 62%;
+        }
+
+        .column2>.explain_image {
+            display: grid;
+            background: url('rowsexample2.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        @media screen and (max-width: 1600px) {
+            .navbar {
+                grid-template-columns: 60% 40%;
+            }
+
+            .graphconfig {
+                padding-left: 25%;
+                padding-right: 25%;
+                padding-top: 0;
+                padding-bottom: 0;
+                font-size: 0.8rem;
+            }
+            #login_display{
+                margin-top: 25%;
+                margin-left: 33%;
+                margin-right: 33%;
+            }
+            .container {
+                margin-left: 5%;
+                margin-right: 5%;
+                margin-bottom: 8%;
+                grid-template-rows: 60rem 106.5rem 10rem 80rem 60rem;
+            }
+
+            .grid4 {
+                grid-template-columns: 1fr;
+                grid-template-rows: 50% 50%;
+            }
+
+            .grid2 {
+                background: linear-gradient(to bottom, rgb(135, 163, 182) 0%, rgb(135, 163, 182) 49.7%, #03549F 49.7%, #03549F 50.2%, rgb(135, 163, 182) 50.2%);
+                grid-template-columns: 1fr;
+                grid-template-rows: 50% 50%;
+                gap: 0%;
+                font-size: 0.5rem;
+            }
+
+            .vertical {
+                grid-template-rows: 85% 15%;
+                padding-left: 12%;
+                padding-right: 12%;
+            }
+
+            .multiaxis {
+                grid-template-rows: 85% 15%;
+                padding-left: 12%;
+                padding-right: 12%;
+            }
+
+            .explain_text {
+                font-size: 0.71rem;
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            .graphconfig {
+                padding-left: 15%;
+                padding-right: 15%;
+            }
+            #login_display{
+                margin-top: 25%;
+                margin-left: 28%;
+                margin-right: 28%;
+            }
+
+            .vertical {
+                padding-left: 3%;
+                padding-right: 3%;
+            }
+
+            .multiaxis {
+                padding-left: 3%;
+                padding-right: 3%;
+            }
+
+            .grid3 {
+                background: linear-gradient(70deg, rgb(98, 119, 133) 0%, rgb(98, 119, 133) 60%, #03549F 60%, #03549F 60.5%, rgb(135, 163, 182) 60.5%);
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            .explain_text {
+                font-size: 0.68rem;
+                margin-right: 15%;
+                margin-left: 15%;
+                margin-bottom: 2%;
+                margin-top: 2%;
+            }
+
+            .explain_text>h3 {
+                padding-right: 5%;
+                padding-left: 5%;
+            }
+
+            .container {
+                grid-template-rows: 60rem 106.5rem 10rem 80rem 90rem;
+            }
+
+            .column1 {
+                grid-template-rows: 70% 30%;
+                grid-template-columns: 1fr;
+            }
+
+            .column1>.explain_image {
+                margin-left: 12%;
+                margin-right: 12%;
+            }
+
+            .column2 {
+                grid-template-rows: 70% 30%;
+                grid-template-columns: 1fr;
+            }
+
+            .column2>.explain_image {
+                margin-left: 12%;
+                margin-right: 12%;
+            }
+        }
+
+        @media screen and (max-width: 730px) {
+            .vertical {
+                grid-template-rows: 70% 30%;
+                padding-left: 12%;
+                padding-right: 12%;
+            }
+            #login_display{
+                margin-top: 25%;
+                margin-left: 25%;
+                margin-right: 25%;
+                height: 26rem;
+            }
+            .login_btn>button{
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-top: 7%;
+            }
+            .multiaxis {
+                grid-template-rows: 70% 30%;
+                padding-left: 12%;
+                padding-right: 12%;
+            }
+
+            .grid2 {
+                background: linear-gradient(to bottom, rgb(135, 163, 182) 0%, rgb(135, 163, 182) 49.7%, #03549F 49.7%, #03549F 50.2%, rgb(135, 163, 182) 50.2%);
+                font-size: 0.45rem;
+            }
+
+            .column1>.explain_image {
+                margin-left: 0%;
+                margin-right: 0%;
+            }
+
+            .column2>.explain_image {
+                margin-left: 0%;
+                margin-right: 0%;
+            }
+
+            .explain_text {
+                font-size: 0.71rem;
+                margin-right: 5%;
+                margin-left: 5%;
+            }
+
+            .container {
+                grid-template-rows: 40rem 70rem 10rem 80rem 90rem;
+            }
+
+            .numerodos {
+                grid-template-columns: 8rem 13rem;
+            }
+
+            .link_right>a>i {
+                font-size: 1rem;
+            }
+
+            .github>h3 {
+                visibility: hidden;
+            }
+
+            .link_right {
+                grid-template-columns: 20% 80%;
+            }
+
+            .navbar {
+                grid-template-columns: 63% 37%;
+            }
+        }
+
+        @media screen and (max-width: 620px) {
+            .removerows>i {
+                font-size: 0.9rem;
+            }
+
+            .column1 {
+                grid-template-rows: 65% 35%;
+            }
+
+            .column2 {
+                grid-template-rows: 65% 35%;
+            }
+
+            .grid5 {
+                padding: 2%;
+            }
+
+            .container {
+                margin: 0;
+                grid-template-rows: 37rem 60rem 8rem 70rem 80rem;
+            }
+
+            .vertical {
+                grid-template-rows: 70% 30%;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .multiaxis {
+                grid-template-rows: 70% 30%;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .grid3 {
+                background: linear-gradient(70deg, rgb(98, 119, 133) 0%, rgb(98, 119, 133) 70%, #03549F 70%, #03549F 70.5%, rgb(135, 163, 182) 70.5%);
+            }
+
+            .grid2 {
+                font-size: 0.4rem;
+            }
+        }
+
+        @media screen and (max-width: 440px) {
+            #login_display{
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            .navbar {
+                grid-template-columns: 60% 40%;
+            }
+
+            .grid3 {
+                background: linear-gradient(70deg, rgb(98, 119, 133) 0%, rgb(98, 119, 133) 85%, #03549F 85%, #03549F 85.5%, rgb(135, 163, 182) 85.5%);
+            }
+        }
+
+        @media screen and (max-width: 395px) {
+            .navbar {
+                grid-template-columns: 50% 50%;
+            }
+        }
+
+        .login {
+            display: none;
+            text-shadow: 1px 1px 1px #000000;
+            grid-template-rows: 10% 15% 75%;
+            background-color: rgb(98, 119, 133);
+            height: 30rem;
+            position: fixed;
+            z-index: 4;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin-top: 15rem;
+            margin-left: 40%;
+            margin-right: 40%;
+            font-family: Karla, sans-serif;
+            color: white;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row_login1 {
+            display: grid;
+            border-radius: 0.2rem;
+            grid-template-columns: 50% 50%;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+        }
+
+        .row_login_login {
+            display: grid;
+            cursor: pointer;
+            background-color: rgb(152, 183, 204);
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            transition: background-color .2s ease-out;
+        }
+
+        .row_login_login:hover {
+            background-color: rgb(152, 183, 204);
+        }
+
+        .row_login_signup {
+            display: grid;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: background-color .2s ease-out;
+        }
+
+        .row_login_signup:hover {
+            background-color: rgb(152, 183, 204);
+        }
+
+        .row_login2 {
+            display: grid;
+            padding: 0;
+            margin: 0;
+        }
+        .row_login2>form{
+            display: grid;
+            grid-template-rows: 33.3333333333% 33.3333333333% 33.3333333333%;
+            padding-left: 8%;
+            padding-right: 8%;
+            padding-bottom: 12%;
+        }
+        .login_btn{
+            display: grid;
+            margin: 0;
+            text-align: center;
+        }
+        .login_btn>button {
+            min-width: 10px;
+            min-height: 10px;
+            font-family: Karla, sans-serif;
+            font-weight: 700;
+            border-style: solid;
+            border: 0;
+            display: grid;
+            cursor: pointer;
+            align-items: center;
+            color: white;
+            font-size: 1rem;
+            margin-top: 8%;
+            background-color: #2dd8b1;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: background-color .2s ease-out;
+        }
+
+        .login_btn>button:hover {
+            background-color: #229e81;
+        }
+        .signup_btn>button:hover {
+            background-color: #229e81;
+        }
+        .signup_btn{
+            display: grid;
+            text-align: center;
+        }
+        .signup_btn>button {
+            min-width: 10px;
+            min-height: 10px;
+            border-style: solid;
+            border: 0;
+            font-family: Karla, sans-serif;
+            font-weight: 700;
+            display: grid;
+            cursor: pointer;
+            align-items: center;
+            color: white;
+            font-size: 1rem;
+            margin-left: 1%;
+            margin-right: 1%;
+            margin-top: 8%;
+            background-color: #2dd8b1;
+            box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+            transition: background-color .2s ease-out;
+        }
+        .username {
+            display: grid;
+            grid-template-rows: 65% 35%;
+            align-items: center;
+        }
+
+        .username_title {
+            display: grid;
+            justify-content: left;
+        }
+
+        .username_input {
+            display: grid;
+            height: 100%;
+        }
+
+        .password {
+            display: grid;
+            grid-template-rows: 65% 35%;
+            align-items: center;
+        }
+
+        .password_title {
+            display: grid;
+            justify-content: left;
+        }
+
+        .password_input {
+            display: grid;
+            height: 100%;
+        }
+
+        /*SIGN UP PART BECAUSE THE CODE BECAME A BIT SPAGHETTI*/
+        .row_signup2 {
+            display: none;
+            padding: 0;
+            margin: 0;
+        }
+        .row_signup2>form{
+            display: grid;
+            grid-template-rows: 25% 25% 25% 25%;
+            padding-left: 8%;
+            padding-right: 8%;
+            padding-bottom: 12%;
+        }
+        .name {
+            display: grid;
+            grid-template-rows: 65% 35%;
+            align-items: center;
+        }
+
+        .name_title {
+            display: grid;
+            justify-content: left;
+        }
+
+        .name_input {
+            display: grid;
+            height: 100%;
+        }
+
+        .last_name {
+            display: grid;
+            grid-template-rows: 65% 35%;
+            align-items: center;
+        }
+
+        .last_name_title {
+            display: grid;
+            justify-content: left;
+        }
+
+        .last_name_input {
+            display: grid;
+            height: 100%;
+        }
+
+        .password {
+            display: grid;
+            grid-template-rows: 65% 35%;
+            align-items: center;
+        }
+
+        .password_title {
+            display: grid;
+            justify-content: left;
+        }
+
+        .password_input {
+            display: grid;
+            height: 100%;
+        }
+        
+
+        /* HERE ENDS */
+        .cross {
+            display: grid;
+            align-items: center;
+            justify-content: right;
+            text-align: center;
+        }
+
+        .cross>i {
+            transition: color .2s ease-out;
+            cursor: pointer;
+        }
+
+        .cross>i:hover {
+            color: burlywood;
+        }
+    </style>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="home">
+            <div class="link_right">
+                <a href="#">
+                    <i class="fas fa-home">
+                    </i>
+                </a>
+                <div class="home1">
+                    <h3>Home</h3>
+                </div>
+            </div>
+        </div>
+        <div class="rightnavbar">
+            <div class="link_right">
+                <a href="https://github.com/Rogerpeke97" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <div class="github">
+                    <h3>Github</h3>
+                </div>
+            </div>
+            <div class="link_right">
+                <a href="#" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <div class="github">
+                    <h3>LinkedIn</h3>
+                </div>
+            </div>
+            <div class="link_right">
+                <a target="_blank" id="login_form">
+                    <i class="fa fa-user"></i>
+                </a>
+                <div class="github">
+                    <h3>Login</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login" id="login_display">
+        <div class="cross">
+            <i class="fa fa-times" aria-hidden="true" id="cross"></i>
+        </div>
+        <div class="row_login1">
+            <div class="row_login_login" id="login_click">
+                <h3>Login</h3>
+            </div>
+            <div class="row_login_signup" id="signup_click">
+                <h3>Sign up</h3>
+            </div>
+        </div>
+        <div class="row_login2" id="login_enter">
+            <form action="/" method="POST">
+            <div class="username">
+                <div class="username_title">
+                    <h3>Username</h3>
+                </div>
+                <div class="username_input">
+                    <input type="text" name="username" id="username_login" value="Enter username...">
+                </div>
+            </div>
+            <div class="password">
+                <div class="password_title">
+                    <h3>Password</h3>
+                </div>
+                <div class="password_input">
+                    <input type="password" name="password" id="password_login" value="">
+                </div>
+            </div>
+            <div class="login_btn">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        </div>
+        <div class="row_signup2" id="signup_enter">
+            <form action="/signup" method="POST">
+            <div class="name">
+                <div class="name_title">
+                    <h3>Name</h3>
+                </div>
+                <div class="name_input">
+                    <input type="text" name="user" id="username_signup" value="Enter name...">
+                </div>
+            </div>
+            <div class="last_name">
+                <div class="last_name_title">
+                    <h3>Last name</h3>
+                </div>
+                <div class="last_name_input">
+                    <input type="text" name="" id="lastname_signup" value="Enter last name...">
+                </div>
+            </div>
+            <div class="password">
+                <div class="password_title">
+                    <h3>Password</h3>
+                </div>
+                <div class="password_input">
+                    <input type="password" name="password" id="password_signup" value="">
+                </div>
+            </div>
+            <div class="signup_btn">
+               <button type="submit">Sign Up</button>
+            </div>
+          </form>
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="grid1">
+            <div class="logo">
+                <div class="logoimg"><img src="/LogoMakr_8xcq1g.png" alt=""></div>
+                <div class="explainercsv">
+                    <h1>Csv data visualization using chartjs!</h1>
+                </div>
+                <div class="buttons">
+                    <i class="fas fa-file-excel"></i>
+                    <i class="fas fa-file-csv"></i>
+                    <i class="far fa-file-alt"></i>
+                </div>
+                <div class="arrow">
+                    <a href="#middle" class="fa fa-chevron-down"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grid2" id="middle">
+            <div class="vertical">
+                <div class="image_example"></div>
+                <h2>
+                    The vertical chart is a chart with rectangular bars with lengths proportional to the values that
+                    they represent. One axis of the chart shows the specific categories being compared, and the other
+                    axis represent different values that are modified according to the data being uploaded.
+                    It provides a visual presentation of categorical data. Categorical data is a grouping of data into
+                    discrete groups, such as months of the year, age group, shoe sizes, and animals. These categories
+                    are usually qualitative.
+                </h2>
+            </div>
+            <div class="multiaxis">
+                <div class="imagemulti_example"></div>
+                <h2>
+                    The multi-axial chart is a line chart, as the name suggests, it's line chart can be
+                    configured for multiple axes. It is a special type of chart that allows multiple y-axes to be
+                    rendered in the same chart.
+                </h2>
+            </div>
+        </div>
+        <div class="grid3">
+            <form action="/uploadedfile" enctype="multipart/form-data" method="POST" id="form">
+                <div class="numerodos">
+                    <div class="loadingfile">
+                        <div class="browsefiles">
+                            <label for="fileUp" class="btn">Browse Files</label>
+                            <input id="fileUp" type="file" name="myFile" style="display: none;" />
+                        </div>
+                        <h1 id="aboutToUpload">File selected:
+
+                        </h1>
+                        <div class="uploadclick">
+                            <label for="uploadClick" class="btn">
+                                <h2>Upload!</h2>
+                            </label>
+                            <input id="uploadClick" type="submit" formtarget="_blank" style="display: none;" />
+                        </div>
+                    </div>
+                    <div class="csvimage">
+                        <i class="fas fa-file-csv"></i>
+                    </div>
+                </div>
+                <div class="numerotres">
+
+                </div>
+            </form>
+        </div>
+        <div class="grid4" id="grid4">
+            <div class="graphconfig">
+                <div class="row1">
+                    <h2>Chart type</h2>
+                    <h3 id="multiaxial">Multi-axial</h3>
+                    <h3 id="vertical">Vertical</h3>
+                </div>
+                <div class="row2">
+                    <h2>Chart title</h2>
+                    <input type="text" id="chart_title" value="Write your chart title here!" autocomplete="off" />
+                    <h3 id="upload_chart_title">Apply</h3>
+                </div>
+                <div class="row3">
+                    <div class="removerows">
+                        <h2>Remove rows</h2>
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </div>
+                    <input type="text" id="chart_rows" value="Remove rows" autocomplete="off" />
+                    <h3 id="remove_chart_rows">Apply</h3>
+                </div>
+                <div class="row4">
+                    <h2>Show all content</h2>
+                    <h3 id="view_all">View full chart</h3>
+                </div>
+            </div>
+            <div class="myChart" id="chartContainer">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="grid5">
+            <div class="column1">
+                <div class="explain_image">
+
+                </div>
+                <div class="explain_text">
+                    <h3>What this converter does at default is remove the first row of the csv or the first line
+                        break and calculate the mean of the different numbers separated by commas in the different rows.
+                        While calculating the mean of these numbers the first variable in the array is removed since
+                        it's the variant that will be the x axis in the chart. The colors, given the amount of
+                        numbers in each x variable, are randomized. Hence, if you update the chart or reload the website
+                        all the values colors will change.
+                    </h3>
+                </div>
+            </div>
+            <div class="column2">
+                <div class="explain_image">
+
+                </div>
+                <div class="explain_text">
+                    <h3>When view full chart is selected no rows will be deleted (Except the first line[0], which in the
+                        example csv file says 'Year'), the mean of each line break will not be calculated and each row
+                        will be displayed from top to bottom with it's corresponding values.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
