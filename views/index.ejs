@@ -1294,6 +1294,9 @@
             <div class="login_btn">
                 <button type="submit">Login</button>
             </div>
+            <% if (message) { %>
+                <h3><%= message.incorrect %></h3>
+                <% } %>
         </form>
         </div>
         <div class="row_signup2" id="signup_enter">

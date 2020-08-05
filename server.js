@@ -186,7 +186,10 @@ app.post('/log_out', (req, res) => {
 })
 // index2 contains an error message in which you either input and invalid user or password
 app.get('/login', (req, res) => {
-     res.render('index2')
+     let message = {
+          Incorrect: "Username or password incorrect!"
+     }
+     res.render('index', {message})
 })
 app.listen(PORT, () => console.log("Server started on port " + PORT));
 //upload file multer
@@ -230,10 +233,13 @@ app.get('/', (req, res) => {
                name: req.user.rows[0].first_name
           }
           res.render('index3.ejs', {
-               user
+               user, message
           })
      } else {
-          res.render('index.ejs')
+          let message = {
+               Incorrect: ""
+          }
+          res.render('index.ejs', {message})
      }
 })
 //postgresql and session creation
