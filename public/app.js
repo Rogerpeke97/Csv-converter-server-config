@@ -235,8 +235,6 @@ async function chartIt() {
         console.log(big_chart_y);
         configDefault.data.labels = first_row_multiplied;
         configDefault.data.datasets[0].data = big_chart_y;
-        document.getElementById('grid4').style.gridTemplateColumns = "1fr";
-        document.getElementById('grid4').style.gridTemplateRows = "50% 50%";
         get_rgb();
         myChart.update();
     });

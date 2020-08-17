@@ -1,0 +1,893 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    margin: 0;
+    height: 100%;
+}
+.navbar {
+    display: grid;
+    grid-template-columns: 14.2857142857% 14.2857142857% 14.2857142857% 14.2857142857% 14.2857142857% 14.2857142857% 14.2857142857%;
+    background-color: white;
+    position: fixed;
+    height: 3rem;
+    width: 100%;
+    color: black;
+    z-index: 1;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 6px 14px 1px rgba(0,0,0,0.75);
+}
+.csvconverter {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.csvconverter > img {
+    max-width: 100%;
+    max-height: 3rem;
+}
+.github {
+    display: grid;
+}
+.github > a > h3 {
+    text-align: left;
+}
+.github > form{
+    color: black;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.5s ease-out;
+}
+.github > form:hover {
+    color: rgb(243, 100, 4);
+}
+
+.github > a {
+    color: black;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.5s ease-out;
+}
+.github > a > i {
+    font-size: 1.6rem;
+}
+.github > a:hover {
+    color: rgb(243, 100, 4);
+}
+
+.github>form>button {
+    text-decoration: none;
+    padding: 0;
+    border-style: solid;
+    border: 0;
+    background-color: transparent;
+}
+.github>form>button>i{
+    display: grid;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    height: 100%;
+    width: 100%;
+    transition: color 0.3s ease-out;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* CONTAINER */
+
+
+.container {
+    position: relative;
+    top: 3rem;
+    display: grid;
+    min-height: 100%;
+    grid-template-rows: 950px 950px 950px 950px 950px;
+}
+.grid_1 {
+    display: grid;
+    background: linear-gradient( 140deg, rgb(243, 100, 4) 40%, whitesmoke 0 60%);
+    overflow: hidden;
+}
+.grid_1_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-image: url('dataimg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.right_grid_1 {
+    display: grid;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    align-items: center;
+}
+.buttons {
+    position: relative;
+    display: grid;
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.buttons > i {
+    display: grid;
+    color: rgb(243, 100, 4);
+    font-size: 6rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000000;
+    animation: scale 2s ease-out infinite;
+}
+@keyframes scale {
+    0% {
+        transform: rotate(-1deg);
+    }
+
+    20% {
+        transform: rotate(2deg) scaleY(1.05);
+    }
+
+    40% {
+        transform: rotate(-1deg);
+    }
+
+    60% {
+        transform: rotate(2deg);
+    }
+
+    80% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.left_grid_1 {
+    display: grid;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    align-items: center;
+    padding-left: 5%;
+    grid-template-rows: 45% 35% 20%;
+}
+.instructions_grid_1 > h3 {
+    position: relative;
+    display: grid;
+    margin: 0;
+}
+.instructions_grid_1 > h3 > i {
+    position: relative;
+    display: grid;
+    left: 30%;
+    font-size: 5rem;
+    max-width: 5rem;
+    text-shadow: 2px 2px 2px #000000;
+    animation: arr 2s ease-out infinite;
+}
+@keyframes arr {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.instructions_grid_1 {
+    display: grid;
+    min-height: 100%;
+    width: 20rem;
+    justify-content: center;
+}
+.button_grid_1 {
+    display: grid;
+}
+.button_grid_1 > a {
+    display: grid;
+    background-color: whitesmoke;
+    min-height: 200px;
+    max-height: 200px;
+    text-decoration: none;
+    width: 20rem;
+    border-radius: 0.6rem;
+    border: 0;
+    padding: 0;
+    box-shadow: 0 0 21px 0 rgba(0,0,0,0.75);
+}
+
+.button_grid_1 > a > button {
+    align-items: center;
+    min-height: 200px;
+    max-height: 200px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    border-radius: 0.6rem;
+    display: grid;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.5s ease-out, color 0.5s ease-out;
+}
+.button_grid_1 > a > button:hover {
+    color: white;
+    background-color: rgb(243, 100, 4);
+}
+
+.chartjs_logo {
+    display: grid;
+    grid-template-rows: 40% 60%;
+}
+.chartjs_logo > img {
+    display: grid;
+    position: relative;
+    left: 6%;
+}
+.image_grid_1 {
+    display: grid;
+    min-height: 100%;
+    position: relative;
+}
+.image_grid_1 > img {
+    display: grid;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+/*GRID 2 */
+
+.grid_2 {
+    display: grid;
+    position: relative;
+    border-top: 2px solid black;
+    padding-top: 3rem;
+    background-color: whitesmoke;
+}
+.grid_2>video{
+    display: grid;
+    max-height: 100%;
+    min-height: 100%;
+}
+
+/* GRID 3 */
+
+.grid_3 {
+    display: grid;
+    border-top: 2px solid black;
+    padding-top: 3rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    grid-template-columns: 50% 50%;
+    background-color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+}
+.image_example {
+    display: grid;
+    margin: 5%;
+    border-radius: 10px;
+    min-height: 650px;
+    max-height: 650px;
+    background: url('verticalchart.png') no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    box-shadow: 0 0 19px -4px rgba(0,0,0,0.75);
+    transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+}
+.image_example:hover {
+    box-shadow: 0 0 21px 0 rgba(0,0,0,0.75);
+    background-color: rgb(243, 100, 4);
+}
+.imagemulti_example {
+    display: grid;
+    margin: 5%;
+    border-radius: 10px;
+    min-height: 650px;
+    max-height: 650px;
+    background: url('multiimage.png') no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    box-shadow: 0 0 19px -4px rgba(0,0,0,0.75);
+    transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+}
+.imagemulti_example:hover {
+    box-shadow: 0 0 21px 0 rgba(0,0,0,0.75);
+    background-color: rgb(243, 100, 4);
+}
+.vertical > h4 {
+    display: grid;
+    margin: 2%;
+}
+.multiaxis > h4 {
+    display: grid;
+    margin: 2%;
+}
+
+/* GRID 4 */
+
+.grid_4 {
+    display: grid;
+    border-top: 2px solid black;
+    grid-template-columns: 30% 70%;
+    background-color: whitesmoke;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.graphconfig>form {
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+    font-size: 0.6rem;
+    color: white;
+}
+
+.browsefiles {
+    background-color: teal;
+    display: grid;
+    text-align: center;
+    color: white;
+    border-radius: 0.2rem;
+    transition: all 0.5s ease-out;
+
+}
+.browsefiles:hover {
+    transform: scale(1.02);
+    background-color: rgb(243, 100, 4);
+}
+
+.browsefiles > label {
+    display: grid;
+    font-size: 1rem;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+}
+
+.uploadclick {
+    background-color: teal;
+    display: grid;
+    color: white;
+    border-radius: 0.2rem;
+    transition: all 0.5s ease-out;
+}
+.uploadclick:hover {
+    transform: scale(1.02);
+    background-color: rgb(243, 100, 4);
+    color: black;
+}
+
+.uploadclick > label {
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    height: 100%;
+    width: 100%;
+}
+
+#aboutToUpload {
+    color: black;
+    background-color: rgb(185, 180, 180);
+    border-radius: 12px;
+    box-shadow: 0 0 19px -4px rgba(0,0,0,0.75);
+}
+
+.uploadclick > label > h2 {
+    margin: 0;
+}
+
+.graphconfig {
+    display: grid;
+    grid-template-rows: 40% 60%;
+    min-height: 70%;
+    font-family: 'Montserrat', sans-serif;
+}
+.row1 {
+    display: grid;
+    grid-template-rows: 15% 10% 10% 15% 10% 10% 15% 10%;
+}
+.row1 > h2 {
+    margin: 0;
+    color: white;
+    display: grid;
+    align-items: center;
+    text-shadow: 1px 1px 1px #000000;
+    background-color: rgb(206, 194, 194);
+}
+
+.row1 > h3 {
+    margin: 0.1rem;
+    display: grid;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 1px #000000;
+    background-color: teal;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+}
+.row1 > h3:hover {
+    transform: scale(1.02);
+    background-color: rgb(243, 100, 4);
+    color: black;
+}
+
+.myChart {
+    position: relative;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+#myChart {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    min-height: 300px;
+    min-width: 200px;
+    box-shadow: 0.2vh 0.1vh 0.282vh 0.18vh rgba(3, 0, 0, 0.486), 0 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+}
+
+/* GRID 5 */
+
+.grid_5 {
+    border-top: 2px solid black;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(28.5deg, rgb(243, 100, 4) 0%, rgb(243, 100, 4) 50%, 0, whitesmoke 51%);
+    display: grid;
+    grid-template-rows: 50% 50%;
+    color: black;
+    font-size: 0.8rem;
+}
+.column1 {
+    display: grid;
+    grid-template-columns: 38% 62%;
+}
+
+.column1 > .explain_image {
+    display: grid;
+    background: url('rowsexample.png') no-repeat;
+    background-size: 100% 100%;
+    min-height: 450px;
+    max-height: 450px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0 19px -4px rgba(0,0,0,0.75);
+    transition: box-shadow 0.2s ease-out;
+}
+.explain_image:hover {
+    box-shadow: 0 0 21px 0 rgba(0,0,0,0.75);
+}
+
+.explain_text > h3 {
+    margin: 5%;
+    text-align: justify;
+}
+
+.column2 {
+    display: grid;
+    grid-template-columns: 38% 62%;
+}
+
+.column2 > .explain_image {
+    display: grid;
+    background: url('rowsexample2.png') no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    min-height: 450px;
+    max-height: 450px;
+    position: relative;
+    box-shadow: 0 0 19px -4px rgba(0,0,0,0.75);
+    transition: box-shadow 0.2s ease-out;
+}
+.explain_image:hover {
+    box-shadow: 0 0 21px 0 rgba(0,0,0,0.75);
+}
+
+/* LOGIN */ 
+
+.login {
+    display: none;
+    text-shadow: 1px 1px 1px #000000;
+    grid-template-rows: 10% 15% 75%;
+    background-color: rgb(243, 100, 4);
+    position: fixed;
+    z-index: 4;
+    height: 475px;
+    width: 30%;
+    left: 35%;
+    top: 237.5px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    box-shadow: 0px 0px 36px -6px rgba(0,0,0,0.75);
+}
+
+.row_login1 {
+    display: grid;
+    border-radius: 0.2rem;
+    grid-template-columns: 50% 50%;
+    box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+}
+
+.row_login_login {
+    display: grid;
+    cursor: pointer;
+    background-color: black;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    transition: background-color .2s ease-out;
+}
+
+.row_login_login:hover {
+    background-color: rgb(126, 81, 61);
+}
+
+.row_login_signup {
+    display: grid;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: background-color .2s ease-out;
+}
+
+.row_login_signup:hover {
+    background-color: rgb(126, 81, 61);
+}
+
+.row_login2 {
+    display: grid;
+    padding: 0;
+    margin: 0;
+}
+.row_login2>form{
+    display: grid;
+    grid-template-rows: 33.3333333333% 33.3333333333% 33.3333333333%;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-bottom: 12%;
+}
+.login_btn{
+    display: grid;
+    margin: 0;
+    text-align: center;
+}
+.login_btn>button {
+    min-width: 10px;
+    min-height: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-style: solid;
+    border: 0;
+    display: grid;
+    cursor: pointer;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    margin-top: 8%;
+    background-color: #2dd8b1;
+    box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+    transition: background-color .2s ease-out;
+}
+
+.login_btn>button:hover {
+    background-color: #229e81;
+}
+.signup_btn>button:hover {
+    background-color: #229e81;
+}
+.signup_btn{
+    display: grid;
+    text-align: center;
+}
+.signup_btn>button {
+    min-width: 10px;
+    min-height: 10px;
+    border-style: solid;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    cursor: pointer;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 8%;
+    background-color: #2dd8b1;
+    box-shadow: 0.2vh 0.1vh 0.282vh rgba(3, 0, 0, 0.486), 0px 3px 5.88px 0.12px rgba(41, 8, 8, 0.514);
+    transition: background-color .2s ease-out;
+}
+.username {
+    display: grid;
+    grid-template-rows: 65% 35%;
+    align-items: center;
+}
+
+.username_title {
+    display: grid;
+    justify-content: left;
+}
+
+.username_input {
+    display: grid;
+    height: 100%;
+}
+
+.password {
+    display: grid;
+    grid-template-rows: 65% 35%;
+    align-items: center;
+}
+
+.password_title {
+    display: grid;
+    justify-content: left;
+}
+
+.password_input {
+    display: grid;
+    height: 100%;
+}
+
+/*SIGN UP PART BECAUSE THE CODE BECAME A BIT SPAGHETTI*/
+.row_signup2 {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+.row_signup2>form{
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-bottom: 12%;
+}
+.name {
+    display: grid;
+    grid-template-rows: 65% 35%;
+    align-items: center;
+}
+
+.name_title {
+    display: grid;
+    justify-content: left;
+}
+
+.name_input {
+    display: grid;
+    height: 100%;
+}
+
+.last_name {
+    display: grid;
+    grid-template-rows: 65% 35%;
+    align-items: center;
+}
+
+.last_name_title {
+    display: grid;
+    justify-content: left;
+}
+
+.last_name_input {
+    display: grid;
+    height: 100%;
+}
+
+.password {
+    display: grid;
+    grid-template-rows: 65% 35%;
+    align-items: center;
+}
+
+.password_title {
+    display: grid;
+    justify-content: left;
+}
+
+.password_input {
+    display: grid;
+    height: 100%;
+}
+
+
+/* HERE ENDS */
+.cross {
+    display: grid;
+    align-items: center;
+    justify-content: right;
+    text-align: center;
+}
+
+.cross>i {
+    transition: color .2s ease-out;
+    cursor: pointer;
+}
+
+.cross>i:hover {
+    color: burlywood;
+}
+
+.error{
+    display: grid;
+    text-align: center;
+    font-size: 0.6rem;
+}
+.error>h3{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* KEYFRAMES */
+@media screen and (max-width: 1850px) {
+    .grid_3 {
+        grid-template-columns: none;
+        grid-template-rows: 50% 50%;
+    }
+    .vertical {
+        justify-items: center;
+        display: grid;
+    }
+    .multiaxis {
+        display: grid;
+        justify-items: center;
+        border-top: 2px solid black;
+    }
+    .imagemulti_example {
+        min-height: 400px;
+        max-height: 400px;
+        min-width: 600px;
+        max-width: 600px;
+        margin: 0;
+    }
+    .image_example {
+        min-height: 400px;
+        max-height: 400px;
+        min-width: 600px;
+        max-width: 600px;
+        margin: 0;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .grid_5 {
+        align-items: center;
+    }
+    .container {
+        grid-template-rows: 1500px 1500px 1500px 1500px 1650px;
+    }
+    .column1 {
+        grid-template-columns: none;
+        justify-items: center;
+        grid-template-rows: 60% 40%;
+    }
+    .column2 {
+        grid-template-columns: none;
+        grid-template-rows: 60% 40%;
+        justify-items: center;
+    }
+    .column2 > .explain_image {
+        min-width: 600px;
+        max-width: 600px;
+    }
+    .explain_image {
+        min-width: 600px;
+        max-width: 600px;
+    }
+    .grid_4 {
+        grid-template-columns: none;
+        grid-template-rows: 50% 50%;
+        justify-items: center;
+    }
+    .graphconfig {
+        min-width: 50%;
+        min-height: 100%;
+    }
+    #chartContainer {
+        justify-items: center;
+        max-width: 90%;
+    }
+    #myChart {
+        max-width: 90%;
+    }
+    .login{
+        height: 750px;
+        top: 375px;
+    }
+
+}
+
+@media screen and (max-width: 1350px) {
+    .login{
+        width: 50%;
+        left: 25%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #chartContainer {
+        justify-items: none;
+        max-width: 100%;
+    }
+    #myChart {
+        max-width: 100%;
+    }
+    .grid_3{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media screen and (max-width: 670px) {
+    .image_example{
+        min-width: 400px;
+        max-width: 400px;
+        min-height: 300px;
+    }
+    .imagemulti_example{
+        min-width: 400px;
+        max-width: 400px;
+        min-height: 300px;
+    }
+    .github>a>h3{
+        display:none;
+    }
+    .column1>.explain_image{
+        min-width: 350px;
+        max-width: 350px;
+        min-height: 300px;
+        max-height: 300px;
+    }
+    .column2>.explain_image{
+        min-width: 350px;
+        max-width: 350px;
+        min-height: 300px;
+        max-height: 300px;
+    }
+    .graphconfig{
+        min-width: 100%;
+    }
+    .grid_1_container{
+        grid-template-columns: none;
+        grid-template-rows: 70% 30%;
+    }
+    .grid_1{
+        background: linear-gradient( 160deg, rgb(243, 100, 4) 40%, whitesmoke 0 60%);
+    }
+
+}
+
