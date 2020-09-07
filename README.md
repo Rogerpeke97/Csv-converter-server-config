@@ -24,3 +24,5 @@ For testing purposes.
 Used to connect to the database and pooling so that multiple users can connect to it.
 ### `passport`:
 Along with passport-local in order to connect to the database and authenticate the user.
+### `@google-cloud/storage`:
+Save files uploaded by users and downloading them in order to be displayed in the canvas. There is a delay after the upload due to google-cloud not updating the bucket fast enough.
